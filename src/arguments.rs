@@ -19,9 +19,9 @@ Options:
         and (something).out.[identifier].
         (NOTE: also works if the .in and .out extensions are at the end of the filename)
         The corresponding inputs and outputs are matched according to the identifier.
-        The test cases are processed alphabetically according to the identifiers.
-    -v Verbose output - output the expected output and output from the program in the case of a wrong
-       answer.
+        The test cases are processed alphabetically according to the identifiers
+    -v Verbose output - output the expected test case output and output returned from the program in the case of a wrong
+       answer
     -c Colored output - highlight output with colors and styling (may not display properly on all consoles)
 
 * A little credit for the project's dependencies is at: \"hmcrovator.exe thanks\"

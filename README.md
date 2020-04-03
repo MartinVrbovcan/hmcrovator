@@ -5,7 +5,7 @@ Croatian coding competitions (specifically designed to work for the test cases
 of [COCI](https://hsin.hr/honi/)/[HONI](https://hsin.hr/coci/) and
 [The National Croatian Computer Science Competition](https://informatika.azoo.hr/)).
 
-**NOTE:** Hmcrovator does **not check the evaluated program's memory usage**, and **only loosely checks program running time** (meaning the measurement is not that precise, IE. the actual running time may be a bit faster or slower), **nor does it use sandboxing** (meaning the program can still create files, network requests, spawn new threads and other prohibited things). That said, it should work well enough for cases where you want to quickly check if your program passes some test cases (this is the "home" part of hmcrovator). The test case inputs and outputs are be tested through standard input and output.
+**NOTE:** Hmcrovator does **not check the evaluated program's memory usage**, and **only loosely checks program running time** (meaning the measurement is not that precise, IE. the actual running time may be a bit faster or slower), **nor does it use sandboxing** (meaning the program can still create files, network requests, spawn new threads and other prohibited things). That said, it should work well enough for cases where you want to quickly check if your program passes some test cases (this is the "home" part of hmcrovator). The test case inputs and outputs are tested through standard input and output.
 
 ## Installation
 
@@ -14,7 +14,7 @@ The prebuilt program binaries are available at `/dist` (currently only built for
 
 ### Building your own binary
 
-If a prebuilt binary is not compatible, or you would like to build the binary yourself, you will need to have [Rust](https://www.rust-lang.org/tools/install) installed. To build your own binary, `git clone` this repo and run `cargo build --release` in the cloned repository.
+If a prebuilt binary is not compatible, or if you would like to build the binary yourself, you will need to have [Rust](https://www.rust-lang.org/tools/install) installed. To build your own binary, `git clone` this repo and run `cargo build --release` in the cloned repository.
 
 ## Usage
 
@@ -22,12 +22,12 @@ To run your program, hmcrovator takes an "action command" which tells it how
 to start your program. The action is enclosed in quotes and is thus able to ignore spaces. An example action command would be `"python ./myfile.py"`, or
 `"./myfilecompiled.exe"`.
 
-After the action command, you also need to specify the test case(s). To specify a single test case, use the `-i` and `-o` arguments. The `-i` argument takes the path to the test case input, and the `-o` argument takes the path to the test case output. Example:
+After the action command, you also need to specify the test case(s). To specify a single test case, use the `-i` and `-o` arguments. The `-i` argument takes the path to the test case input, and the `-o` argument takes the path to the test case output. An example:
 ```bash
 > ./hmcrovator.exe "./taskA.exe" -i "./tasks/a/testcases/a.1.in" -o "./tasks/a/testcases/a.1.out"
 ```
 
-More often than not, you will have a lot of test cases and testing them individually would be time consuming. This is where the `-iod` argument comes in. The `-iod` argument (*input/output directory*) takes the path to a directory containing the test case inputs and outputs (note that the test case files are not checked recursively) and automatically tests all test cases that are inside the directory. The correct test case inputs and outputs are paired according to filename. They must be in the format **[something].(in/out).[id]** or **[something].[id].(in/out)** and should work on the above noted Croatian programming competitions. Example:
+More often than not, you will have a lot of test cases and testing them individually would be time consuming. This is where the `-iod` argument comes in. The `-iod` argument (*input/output directory*) takes the path to a directory containing the test case inputs and outputs (note that the test case files are not checked recursively) and automatically tests all test cases that are inside the directory. The correct test case inputs and outputs are paired according to filename. They must be in the format **[something].(in/out).[id]** or **[something].[id].(in/out)** and should work on the above noted Croatian programming competitions. An example:
 
 ```bash
 > ./hmcrovator.exe "./taskF.exe" -iod "./f/testcases/"
@@ -60,7 +60,7 @@ a.4.in a.4.out
 ACCEPTED
 ```
 
-Crovaluator recognises test case formats used by the above noted competitions.
+Crovator recognises test case formats used by the above noted competitions.
 `Accepted` means that the program output was matched exactly, `Time limit exceeded` means the program did not terminate in the given time limit, and `Wrong answer` means the program terminated, but its output does not match the test case correct output.
 
 ## All arguments
@@ -74,15 +74,15 @@ Options:
         and (something).out.[identifier].
         (NOTE: also works if the .in and .out extensions are at the end of the filename)
         The corresponding inputs and outputs are matched according to the identifier.
-        The test cases are processed alphabetically according to the identifiers.
-    -v Verbose output - output the expected output and output from the program in the case of a wrong answer.
+        The test cases are processed alphabetically according to the identifiers
+    -v Verbose output - output the expected test case output and output returned from the program in the case of a wrong answer
     -c Colored output - highlight output with colors and styling (may not display properly on all consoles)
 ```
 
 ## Contributing
 If you notice a bug or have a question, feel free to open an issue.
 
-This is just a pet project of mine and is my first dip into Rust. I am aware that it isn't efficient or super maintainable, so if you have some tips or would like to refactor the code to something better fell free to do so :).
+This is just a pet project of mine and is my first dip into Rust. I am aware that it isn't efficient or super maintainable, so if you have some tips or would like to refactor the code to something better fell free to do so :)
 
 ## License
 
